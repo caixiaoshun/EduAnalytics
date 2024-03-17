@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from sqlalchemy import create_engine ##导入引擎。
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -155,3 +156,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+engine=create_engine('mysql+pymysql://root:root@127.0.0.1:3306/educationdatahub?charset=utf8mb4')
+#括号内容对应：数据库系统+数据库连接池：//数据库用户名:数据库密码@服务器所在地址：端口号/数据库名称?编码方式

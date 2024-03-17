@@ -12,6 +12,7 @@
     "@kjgl77/datav-vue3": "^1.7.2",
     "axios": "^1.6.8",
     "echarts": "^5.5.0",
+    "element-plus": "^2.6.1",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
