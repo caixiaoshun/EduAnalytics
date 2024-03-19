@@ -95,3 +95,16 @@ def getSelfAssessment(request):
         {"cdate": "总分", "name": names, "scores": total},
     ]
     return JsonResponse(res, safe=False)
+
+
+def getStudentInformation(request):
+    df = pd.read_sql("select * from student",con=settings.engine)
+    class_names = df['class_name'].tolist()
+    res = {'class_name':{},'gender':{}}
+    for class_name in class_names:
+        count = df.loc[df['class_name'] == class_name].shape[0]
+        res['class_name'][class_name] = count
+    res['gender']['男'] = df.loc[df['gender'] == '男'].shape[0]
+    res['gender']['女'] = df.loc[df['gender'] == '女'].shape[0]
+    res['total'] = len(df)
+    return JsonResponse(res,safe=False)

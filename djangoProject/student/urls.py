@@ -16,11 +16,12 @@ Including another URLconf
 """
 
 from django.urls import path
-from .views import getAllStudents,getGender,getComposition,getSelfAssessment
+from .views import getAllStudents,getGender,getComposition,getSelfAssessment,getStudentInformation
 
 urlpatterns = [
     path('getAllStudents/',getAllStudents),
     path('getGender/',getGender),
     path('getComposition',getComposition),
-    path('getSelfAssessment',getSelfAssessment)
+    path('getSelfAssessment',getSelfAssessment),
+    path('getStudentInformation',getStudentInformation)
 ]

@@ -9,11 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
     "@kjgl77/datav-vue3": "^1.7.2",
     "axios": "^1.6.8",
     "echarts": "^5.5.0",
     "element-plus": "^2.6.1",
     "vue": "^3.4.21",
+    "vue-amazing-ui": "^0.1.36",
+    "vue-animate-number": "^0.4.2",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 
 import Header from "../components/Header.vue";
-import SeleAssessment from "../components/SelfAssessment.vue";
+// import SeleAssessment from "../components/SelfAssessment.vue";
 // import GenderPieChart from "../components/GenderPieChart.vue";
-// import StudentTable from "../components/student-table.vue";
+import StudentTable from "../components/student-table.vue";
 
 </script>
 
@@ -13,8 +13,8 @@ import SeleAssessment from "../components/SelfAssessment.vue";
     <Header></Header>
     <el-row>
       <el-col :span="8">
-<!--        <StudentTable></StudentTable>-->
-        <sele-assessment></sele-assessment>
+        <StudentTable></StudentTable>
+<!--        <sele-assessment></sele-assessment>-->
       </el-col>
     </el-row>
 
