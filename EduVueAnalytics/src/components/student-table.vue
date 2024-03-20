@@ -38,15 +38,16 @@
                 <el-statistic :value="null">
                   <template #title>
                     <div style="display: inline-flex; align-items: center;color: ghostwhite">
-                      男生人数
+                      男生
                       <el-tooltip
                           effect="dark"
                           content="班级男生人数"
                           placement="top"
                       >
-                        <el-icon style="margin-left: 4px" :size="12">
-                          <User />
-                        </el-icon>
+<!--                        <el-icon style="margin-left: 4px" :size="12">-->
+<!--                          <User />-->
+<!--                        </el-icon>-->
+                        <img src="../assets/male.png">
                       </el-tooltip>
                     </div>
                   </template>
@@ -63,15 +64,16 @@
                 <el-statistic :value="null">
                   <template #title>
                     <div style="display: inline-flex; align-items: center;color: ghostwhite">
-                      女生人数
+                      女生
                       <el-tooltip
                           effect="dark"
                           content="班级女生人数"
                           placement="top"
                       >
-                        <el-icon style="margin-left: 4px" :size="12">
-                          <UserFilled />
-                        </el-icon>
+<!--                        <el-icon style="margin-left: 4px" :size="12">-->
+<!--                          <UserFilled />-->
+<!--                        </el-icon>-->
+                        <img src="../assets/female.png">
                       </el-tooltip>
                     </div>
                   </template>
@@ -98,7 +100,6 @@
 <script lang="ts" setup>
 import {onMounted, ref} from "vue";
 import request from "../request";
-import {User,UserFilled} from "@element-plus/icons-vue";
 
 const studentInformation = ref()
 const class_name: any = ref([])

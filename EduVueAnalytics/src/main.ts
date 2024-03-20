@@ -5,6 +5,8 @@ import './reset.css'
 import router from "./router";
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import "echarts-gl"
+// @ts-ignore
 import VueAmazingUI from 'vue-amazing-ui'
 import 'vue-amazing-ui/css'
 // @ts-ignore

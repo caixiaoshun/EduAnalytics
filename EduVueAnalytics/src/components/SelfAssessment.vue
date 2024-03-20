@@ -1,5 +1,7 @@
 <template>
-  <div id="acrossChart" :style="{ width: '100%', height: '500px' }"></div>
+  <div style="width: 100%;height: 500px">
+    <div id="acrossChart" style="width: 100%;height: 100%"></div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -8,7 +10,6 @@ import {onMounted, ref, getCurrentInstance} from "vue";
 import request from "../request/index.ts";
 // @ts-ignore
 const {proxy} = getCurrentInstance()
-
 const mychart = ref()
 const colors = [
   '#FF0000', '#FF4500', '#FF7E00', '#FFD700', '#FFFF00',
@@ -94,11 +95,15 @@ const updateData = (index: number) => {
     count += 1
   }
 }
-onMounted(async () => {
+
+const init = async ()=>{
   mychart.value = proxy.$echarts.init(document.getElementById('acrossChart'))
   let response = await request.get("/student/getSelfAssessment")
   dataArr.value = Object.values(response.data)
   updateData(0)
+}
+onMounted( () => {
+  init()
 })
 
 setInterval(()=>{

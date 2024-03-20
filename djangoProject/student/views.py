@@ -1,3 +1,5 @@
+import os.path
+
 from django.http import JsonResponse
 from djangoProject import settings
 import pandas as pd
@@ -98,13 +100,29 @@ def getSelfAssessment(request):
 
 
 def getStudentInformation(request):
-    df = pd.read_sql("select * from student",con=settings.engine)
+    df = pd.read_sql("select * from student", con=settings.engine)
     class_names = df['class_name'].tolist()
-    res = {'class_name':{},'gender':{}}
+    res = {'class_name': {}, 'gender': {}}
     for class_name in class_names:
         count = df.loc[df['class_name'] == class_name].shape[0]
         res['class_name'][class_name] = count
     res['gender']['男'] = df.loc[df['gender'] == '男'].shape[0]
     res['gender']['女'] = df.loc[df['gender'] == '女'].shape[0]
     res['total'] = len(df)
-    return JsonResponse(res,safe=False)
+    return JsonResponse(res, safe=False)
+
+
+def getStudentPerformer(request):
+    df = pd.read_excel(
+        os.path.join(os.getcwd(), "student", "data", "2022数据分析与处理技术课程综课堂表现记录名单.xlsx"))
+    df.fillna(0, inplace=True)
+
+    # yAxis = df['姓名'].to_list()
+    # xAxis = df.columns.tolist()[4:]
+    data = []
+    for i in range(len(df)):
+        for j in range(1, 17):
+            key = f"第{j}课"
+            data.append([df.iloc[i]['姓名'], key, df.iloc[i][key]])
+            # data.append({"name":df.iloc[i]['姓名'],"score":df.iloc[i][key],"week":key})
+    return JsonResponse({"data": data}, safe=False)

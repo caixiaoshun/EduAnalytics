@@ -17,6 +17,9 @@ dependencies:
   echarts:
     specifier: ^5.5.0
     version: 5.5.0
+  echarts-gl:
+    specifier: ^2.0.9
+    version: 2.0.9(echarts@5.5.0)
   element-plus:
     specifier: ^2.6.1
     version: 2.6.1(vue@3.4.21)
@@ -866,6 +869,10 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
+  /claygl@1.3.0:
+    resolution: {integrity: sha512-+gGtJjT6SSHD2l2yC3MCubW/sCV40tZuSs5opdtn79vFSGUgp/lH139RNEQ6Jy078/L0aV8odCw8RSrUcMfLaQ==}
+    dev: false
+
   /cliui@6.0.0:
     resolution: {integrity: sha512-t6wbgtoCXvAzst7QgXxJYqPt0usEfbgQdftEPbLL/cvv6HPE5VgvqCuAIDR0NgU52ds6rFwqrgakNLrHEjCbrQ==}
     dependencies:
@@ -974,6 +981,16 @@ packages:
 
   /dom-scroll-into-view@2.0.1:
     resolution: {integrity: sha512-bvVTQe1lfaUr1oFzZX80ce9KLDlZ3iU+XGNE/bz9HnGdklTieqsbmsLHe+rT2XWqopvL0PckkYqN7ksmm5pe3w==}
+    dev: false
+
+  /echarts-gl@2.0.9(echarts@5.5.0):
+    resolution: {integrity: sha512-oKeMdkkkpJGWOzjgZUsF41DOh6cMsyrGGXimbjK2l6Xeq/dBQu4ShG2w2Dzrs/1bD27b2pLTGSaUzouY191gzA==}
+    peerDependencies:
+      echarts: ^5.1.2
+    dependencies:
+      claygl: 1.3.0
+      echarts: 5.5.0
+      zrender: 5.5.0
     dev: false
 
   /echarts@5.5.0:

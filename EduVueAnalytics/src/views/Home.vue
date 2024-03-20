@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
 import Header from "../components/Header.vue";
+// import HeatmapOfStudentPerformance from "../components/StudentPerformance3D.vue";
 // import SeleAssessment from "../components/SelfAssessment.vue";
 // import GenderPieChart from "../components/GenderPieChart.vue";
 import StudentTable from "../components/student-table.vue";
@@ -15,10 +16,10 @@ import StudentTable from "../components/student-table.vue";
       <el-col :span="8">
         <StudentTable></StudentTable>
 <!--        <sele-assessment></sele-assessment>-->
+<!--        <heatmap-of-student-performance></heatmap-of-student-performance>-->
       </el-col>
     </el-row>
 
-<!--  <GenderPieChart></GenderPieChart>-->
   </dv-full-screen-container>
 </template>
 
