@@ -10,6 +10,10 @@ app = Flask(__name__)
 @app.route('/getAllStudents')
 @cross_origin()
 def get_all_students():
+    """
+    得到所有学生的信息
+    :return:
+    """
     df = pd.read_excel(os.path.join(os.getcwd(), 'data', '2022数据分析与处理技术课程综课堂表现记录名单.xlsx'))
     data = []
     for i in range(len(df)):
@@ -22,6 +26,10 @@ def get_all_students():
 @app.route('/getGender')
 @cross_origin()
 def get_gender():
+    """
+    得到性别比例
+    :return:
+    """
     df = pd.read_excel(os.path.join(os.getcwd(), 'data', '2022数据分析与处理技术课程综课堂表现记录名单.xlsx'))
     male = len(df[df['性别'] == '男'])
     female = len(df[df['性别'] == '女'])
@@ -61,6 +69,10 @@ def get_composition():
 @app.route('/getStudentInformation')
 @cross_origin()
 def get_student_information():
+    """
+    学生表综述
+    :return:
+    """
     df = pd.read_excel(os.path.join(os.getcwd(), 'data', '2022数据分析与处理技术课程综课堂表现记录名单.xlsx'))
     class_names = df['班级'].tolist()
     res = {'class_name': {}, 'gender': {}}
@@ -76,6 +88,10 @@ def get_student_information():
 @app.route('/getStudentPerformer')
 @cross_origin()
 def get_student_performance():
+    """
+    得到学生自我评价信息
+    :return:
+    """
     df = pd.read_excel(os.path.join(os.getcwd(), 'data', '2022数据分析与处理技术课程综课堂表现记录名单.xlsx'))
     df.fillna(0, inplace=True)
     data = []
@@ -96,27 +112,15 @@ def get_self_assessment():
     df = pd.read_excel(os.path.join(os.getcwd(), 'data', '2022数据分析与处理技术课程自评.xlsx'))
     df.fillna(0, inplace=True)
     total = df.iloc[:,5:]
-    df['total'] = total.sum(axis=1)
+    df['总分'] = total.sum(axis=1)
     df = df.astype("str")
+    scores_key = df.columns.tolist()[5:]
     names = df['姓名'].tolist()
-    score1 = df['自评1'].tolist()
-    score2 = df['自评2'].tolist()
-    score3 = df['自评3'].tolist()
-    score4 = df['自评4'].tolist()
-    score5 = df['自评5'].tolist()
-    score6 = df['自评6'].tolist()
-    score7 = df['自评7'].tolist()
-    total = df['total'].tolist()
-    res = [
-        {"cdate": "自评1", "name": names, "scores": score1},
-        {"cdate": "自评2", "name": names, "scores": score2},
-        {"cdate": "自评3", "name": names, "scores": score3},
-        {"cdate": "自评4", "name": names, "scores": score4},
-        {"cdate": "自评5", "name": names, "scores": score5},
-        {"cdate": "自评6", "name": names, "scores": score6},
-        {"cdate": "自评7", "name": names, "scores": score7},
-        {"cdate": "总分", "name": names, "scores": total},
-    ]
+    scores_list = []
+    res = []
+    for score_key in scores_key:
+        scores_list.append(df[score_key].tolist())
+        res.append({"cdate":score_key,"name":names,"scores":df[score_key].tolist()})
     return jsonify(res)
 
 
