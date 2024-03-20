@@ -98,7 +98,7 @@ const updateData = (index: number) => {
 
 const init = async ()=>{
   mychart.value = proxy.$echarts.init(document.getElementById('acrossChart'))
-  let response = await request.get("/student/getSelfAssessment")
+  let response = await request.get("/getSelfAssessment")
   dataArr.value = Object.values(response.data)
   updateData(0)
 }

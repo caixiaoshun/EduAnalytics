@@ -112,12 +112,12 @@ const student_table: any = ref({
   align: ['center']
 })
 const init = async ()=>{
-  let response = await request.get('/student/getAllStudents')
+  let response = await request.get('/getAllStudents')
   student_table.value.header = ['学号', '姓名', '性别', '班级']
   for (let key in response.data) {
     student_table.value.data.push([response.data[key]['student_id'], response.data[key]['name'], response.data[key]['gender'], response.data[key]['class_name']])
   }
-  response = await request.get('/student/getStudentInformation')
+  response = await request.get('/getStudentInformation')
   studentInformation.value = response.data
   class_name.value = Object.keys(studentInformation.value['class_name'])
   total.value = studentInformation.value.total

@@ -107,7 +107,7 @@ const option = ref(
 )
 const myechart = ref()
 onMounted(async () => {
-  let response = await request.get("/student/getStudentPerformer")
+  let response = await request.get("/getStudentPerformer")
   // xAxis.value = response.data['xAxis']
   // yAxis.value = response.data['yAxis']
   data.value = response.data['data']
