@@ -1,8 +1,7 @@
 <script setup lang="ts">
 
 import Header from "../components/Header.vue";
-import StudentPerformance3D from "../components/StudentPerformance3D.vue";
-
+import TeamReviewScoreChart from "../components/TeamReviewScoreChart.vue";
 
 </script>
 
@@ -12,7 +11,7 @@ import StudentPerformance3D from "../components/StudentPerformance3D.vue";
     <Header></Header>
     <el-row>
       <el-col :span="8">
-        <student-performance3-d></student-performance3-d>
+        <team-review-score-chart></team-review-score-chart>
       </el-col>
     </el-row>
 

@@ -7,6 +7,20 @@ from flask_cors import cross_origin
 app = Flask(__name__)
 
 
+def get_name_score(filename):
+    """
+    一个工具函数，得到姓名和分数
+    :param filename:
+    :return:
+    """
+    df = pd.read_excel(filename)
+    df.fillna(0, inplace=True)
+    res = []
+    for i in range(len(df)):
+        res.append({"name": df.iloc[i]['姓名'], "value": int(df.iloc[i]['分数'])})
+    return res
+
+
 @app.route('/getAllStudents')
 @cross_origin()
 def get_all_students():
@@ -111,7 +125,7 @@ def get_self_assessment():
     """
     df = pd.read_excel(os.path.join(os.getcwd(), 'data', '2022数据分析与处理技术课程自评.xlsx'))
     df.fillna(0, inplace=True)
-    total = df.iloc[:,5:]
+    total = df.iloc[:, 5:]
     df['总分'] = total.sum(axis=1)
     df = df.astype("str")
     scores_key = df.columns.tolist()[5:]
@@ -120,8 +134,56 @@ def get_self_assessment():
     res = []
     for score_key in scores_key:
         scores_list.append(df[score_key].tolist())
-        res.append({"cdate":score_key,"name":names,"scores":df[score_key].tolist()})
+        res.append({"cdate": score_key, "name": names, "scores": df[score_key].tolist()})
     return jsonify(res)
+
+
+@app.route('/getFirstLeaderScore')
+@cross_origin()
+def get_first_leader_score():
+    """
+    第一次组长打分数据
+    :return:
+    """
+    filename = os.path.join(os.getcwd(), 'data', '第一次组长打分表.xlsx')
+    result = get_name_score(filename)
+    return jsonify({"data": result})
+
+
+@app.route('/getSecondLeaderScore')
+@cross_origin()
+def get_second_leader_score():
+    """
+    第一次组长打分数据
+    :return:
+    """
+    filename = os.path.join(os.getcwd(), 'data', '第二次组长打分表.xlsx')
+    result = get_name_score(filename)
+    return jsonify({"data": result})
+
+
+@app.route('/getFirstMemberScore')
+@cross_origin()
+def get_first_member_score():
+    """
+    第一次组员打分数据
+    :return:
+    """
+    filename = os.path.join(os.getcwd(), 'data', '第一次组员打分表.xlsx')
+    result = get_name_score(filename)
+    return jsonify({"data": result})
+
+
+@app.route('/getSecondMemberScore')
+@cross_origin()
+def get_second_member_score():
+    """
+    第一次组长打分数据
+    :return:
+    """
+    filename = os.path.join(os.getcwd(), 'data', '第二次组员打分表.xlsx')
+    result = get_name_score(filename)
+    return jsonify({"data": result})
 
 
 if __name__ == '__main__':
