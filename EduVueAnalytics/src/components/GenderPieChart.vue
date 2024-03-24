@@ -1,5 +1,5 @@
 <template>
-  <div id="pie" style="width:25rem;height:15rem;"></div>
+  <div id="pie" style="width:100%;height:100%;"></div>
 </template>
 <script lang="ts" setup>
 import {onMounted, ref, getCurrentInstance} from "vue";
@@ -10,7 +10,6 @@ const {proxy} = getCurrentInstance()
 const option: any = ref({
   title: {
     text: '男女比例',
-    subtext: '男女生数量',
     left: 'center',
     textStyle: {
       //文字颜色
@@ -53,7 +52,7 @@ const option: any = ref({
   ]
 })
 onMounted(async () => {
-  let response = await request.get("/student/getGender")
+  let response = await request.get("/getGender")
 
   option.value.series[0].data.push({value: response.data.female, name: '女生'})
   option.value.series[0].data.push({value: response.data.male, name: '男生'})

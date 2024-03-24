@@ -122,9 +122,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div>
-    <div style="height: 500px;width: 100%;" id="heatMap"></div>
-  </div>
+  <div style="height: 100%;width: 100%;" id="heatMap"></div>
 </template>
 
 <style scoped>

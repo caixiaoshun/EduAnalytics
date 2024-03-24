@@ -1,15 +1,14 @@
 <template>
-  <div style="width:500px;height:300px">
+  <div style="width:100%;height:100%">
     <el-row>
       <dv-button @click="handleClick()" border="Border2" color="#4c8045"
-                 style="margin-bottom: 10px;margin-left: 200px;text-align: center">{{ buttonText }}
+                 style="margin-bottom: 5px;margin-left: 250px;text-align: center;margin-top: 10px">{{ buttonText }}
       </dv-button>
     </el-row>
-    <dv-scroll-board :config="student_table" style="width:100%;height:100%" v-if="buttonText === '班级统计'"
+    <dv-scroll-board :config="student_table" style="width:90%;height:90%;margin: auto" v-if="buttonText === '班级统计'"
                      :hoverPause="false" :waitTime="1000"/>
-    <div v-if="buttonText === '班级明细'" class="class-detail">
-      <el-row>
-
+    <div v-if="buttonText === '班级明细'" class="class-detail" style="margin-left: 70px">
+      <el-row style="margin-top: 50px">
           <el-card style="background-color: #0A2732;border: #0A2732 solid 1px;color: wheat">
             <template #header>
               <div class="card-header" style="text-align: center">
@@ -34,37 +33,32 @@
             </el-row>
 
             <el-row>
-              <el-col :span="12">
+              <el-col :span="12" style="display: flex; justify-content: center; align-items: center; height: 100%;">
                 <el-statistic :value="null">
                   <template #title>
                     <div style="display: inline-flex; align-items: center;color: ghostwhite">
-                      男生
                       <el-tooltip
                           effect="dark"
                           content="班级男生人数"
                           placement="top"
                       >
-<!--                        <el-icon style="margin-left: 4px" :size="12">-->
-<!--                          <User />-->
-<!--                        </el-icon>-->
                         <img src="../assets/male.png">
                       </el-tooltip>
                     </div>
                   </template>
                   <template #suffix>
                     <div style="color: ghostwhite;font-size: 18px;font-weight: 600;text-align: center">
-                      <el-tag type="success" style="margin-left: 10px;margin-bottom: 10px" size="large">
-                        <NumberAnimation :to="male" :duration="5000"></NumberAnimation>人
+                      <el-tag type="success" style="margin-bottom: 10px" size="large">
+                        <el-text type="primary">男生</el-text><NumberAnimation :to="male" :duration="5000"></NumberAnimation>人
                       </el-tag>
                     </div>
                   </template>
                 </el-statistic>
               </el-col>
-              <el-col :span="12">
+              <el-col :span="12" style="display: flex; justify-content: center; align-items: center; height: 100%;">
                 <el-statistic :value="null">
                   <template #title>
                     <div style="display: inline-flex; align-items: center;color: ghostwhite">
-                      女生
                       <el-tooltip
                           effect="dark"
                           content="班级女生人数"
@@ -79,8 +73,8 @@
                   </template>
                   <template #suffix>
                     <div style="color: ghostwhite;font-size: 18px;font-weight: 600;text-align: center">
-                      <el-tag type="success" style="margin-left: 10px;margin-bottom: 10px" size="large">
-                        <NumberAnimation :to="female" :duration="5000"></NumberAnimation>人
+                      <el-tag type="success" style="margin-bottom: 10px" size="large">
+                        <el-text type="primary">女生</el-text><NumberAnimation :to="female" :duration="5000"></NumberAnimation>人
                       </el-tag>
                     </div>
                   </template>

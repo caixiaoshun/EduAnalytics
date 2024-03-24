@@ -47,7 +47,7 @@ onMounted(()=>{
 </script>
 
 <template>
-<div style="height: 340px;width: 100%">
+<div style="height: 100%;width: 100%">
   <h2 style="color: azure;text-align: center;height: 20px">{{value}}</h2>
   <dv-scroll-ranking-board :config="config" style="width:500px;height:300px;" />
   <div style="text-align: center">
