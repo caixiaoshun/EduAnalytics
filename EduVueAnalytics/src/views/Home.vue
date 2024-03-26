@@ -6,6 +6,7 @@ import StudentTable from "../components/student-table.vue";
 import SelfAssessment from "../components/SelfAssessment.vue";
 import GenderPieChart from "../components/GenderPieChart.vue";
 import TeamReviewScoreChart from "../components/TeamReviewScoreChart.vue";
+import ClusterVisualization from "../components/ClusterVisualization.vue";
 
 </script>
 
@@ -35,20 +36,22 @@ import TeamReviewScoreChart from "../components/TeamReviewScoreChart.vue";
 
     <!--  第二行  -->
     <div class="module-box" style="height: 40vh;width: 100%;margin-top: 30px;margin-right: 10px;">
-      <div>
-        <dv-border-box10 style="width: 100%;height: 100%">
+      <div style="flex: 0 1 15%;text-align: center">
+        <dv-border-box10>
           <gender-pie-chart></gender-pie-chart>
         </dv-border-box10>
 
       </div>
 
-      <div>
+      <div style="flex: 0 1 30%;margin-left: 10px;margin-right: 10px">
         <dv-border-box8 :reverse="true">
           <team-review-score-chart></team-review-score-chart>
         </dv-border-box8>
       </div>
-      <div style="flex: 0 1 40%">
-
+      <div style="flex: 0 1 55%;width: 90%;padding-left: 10px;margin-left: 20px">
+        <dv-border-box12>
+        <cluster-visualization></cluster-visualization>
+        </dv-border-box12>
       </div>
 
     </div>
