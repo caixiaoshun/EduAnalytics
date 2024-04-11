@@ -36,7 +36,6 @@ const ChangeScore = async ()=>{
   // @ts-ignore
   let response = await request.get(urls[value.value])
   config.data = response.data.data
-  console.log(config);
 }
 const handleChange = ()=>{
   ChangeScore()

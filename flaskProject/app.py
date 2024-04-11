@@ -101,20 +101,24 @@ def cluster_agglomerative_cluster(df: pd.DataFrame, cluster):
     sil_score = silhouette_score(scaler_data, labels)
     return labels, sil_score
 
-def cluster_dbscan(df: pd.DataFrame,min_samples:int):
+
+def cluster_dbscan(df: pd.DataFrame, min_samples: int):
     scaler_data = process_data(df)
     model = DBSCAN(eps=0.5, min_samples=min_samples)
     model.fit(scaler_data)
     labels = model.labels_
     sil_score = silhouette_score(scaler_data, labels)
     return labels, sil_score
-def cluster_optics(df: pd.DataFrame,min_samples:int):
+
+
+def cluster_optics(df: pd.DataFrame, min_samples: int):
     scaler_data = process_data(df)
     model = OPTICS(eps=0.5, min_samples=min_samples)
     model.fit(scaler_data)
     labels = model.labels_
     sil_score = silhouette_score(scaler_data, labels)
     return labels, sil_score
+
 
 def get_student_summary():
     """
@@ -355,7 +359,7 @@ def get_student_cluster():
         df['label'] = label
         return jsonify({"data": get_result_from_df(df), "score": sil_score, "cluster": cluster})
     elif method == 'DBSCAN':
-        min_samples = int(request.args.get('min_samples',4))
+        min_samples = int(request.args.get('min_samples', 4))
         label, sil_score = cluster_dbscan(df.iloc[:, 4:], min_samples)
         df['label'] = label
         cluster = len(set(label))

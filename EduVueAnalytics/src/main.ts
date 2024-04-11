@@ -5,6 +5,7 @@ import './reset.css'
 import router from "./router";
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import "echarts-gl"
 // @ts-ignore
 import VueAmazingUI from 'vue-amazing-ui'
@@ -12,6 +13,9 @@ import 'vue-amazing-ui/css'
 // @ts-ignore
 import * as echarts from 'echarts';//引入echarts
 const app = createApp(App)
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    app.component(key, component)
+}
 app.config.globalProperties.$echarts = echarts
 app.use(DataVVue3)
 app.use(ElementPlus)
