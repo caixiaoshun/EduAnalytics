@@ -1,0 +1,6 @@
+.idea/
+/api/venv/
+/api/idea/
+/EduAnalytics/.idea/
+/EduAnalytics/.vscode/
+/EduAnalytics/node_modules/
