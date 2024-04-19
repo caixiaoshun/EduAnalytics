@@ -3,6 +3,14 @@ interface Series {
   name: string,
   type: string,
   stack: string,
+  smooth: boolean,
+  lineStyle: any,
+  showSymbol: boolean,
+  areaStyle: {
+    opacity: number,
+    color: any
+  },
+  emphasis: any,
   data: Array<number>
 }
 
@@ -16,32 +24,43 @@ const names: Ref<Array<string>> = ref([])
 const series: Ref<Array<Series>> = ref([])
 const option = reactive({
   title: {
-    text: 'Stacked Line'
+    text: '课程情况',
+    left: 'center',
+    top: 'top',
+    textStyle: {
+      fontSize: 20,
+      color: '#fff',
+      fontWeight: 'bold'
+    },
   },
   tooltip: {
     trigger: 'axis'
   },
   legend: {
-    data: ['123']
-  },
-  grid: {
-    left: '3%',
-    right: '4%',
-    bottom: '3%',
-    containLabel: true
-  },
-  toolbox: {
-    feature: {
-      saveAsImage: {}
+    data: ['123'],
+    x:'left',
+    y:'bottom',
+    textStyle: {
+      color: 'white',
+      fontSize: '16px',
+      fontWeight: 700
     }
   },
   yAxis: {
     type: 'value',
+    axisLabel:{
+      rotate:0,
+      color:'#fff',
+    }
   },
   xAxis: {
     type: 'category',
     boundaryGap: false,
-    data: ['123']
+    data: ['123'],
+    axisLabel:{
+      rotate:0,
+      color:'#fff',
+    }
   },
   series: []
 });
