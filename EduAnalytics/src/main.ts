@@ -7,6 +7,7 @@ import router from './router'
 import * as echarts from 'echarts'
 import 'ant-design-vue/dist/reset.css';
 import Antd from 'ant-design-vue';
+import 'echarts-liquidfill'
 const app = createApp(App)
 
 

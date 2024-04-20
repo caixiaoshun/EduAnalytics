@@ -8,8 +8,9 @@ import {useClusterStore} from "@/stores/clusterStore";
 import {storeToRefs} from "pinia";
 import {ref} from "vue";
 import {message} from "ant-design-vue";
+import WaterLevelChart from "@/components/WaterLevelChart.vue";
 
-const {cluster, score,method} = storeToRefs(useClusterStore())
+const {cluster, score, method} = storeToRefs(useClusterStore())
 const options = [
   {
     value: "Kmeans",
@@ -26,7 +27,7 @@ const options = [
 
 ]
 const childDom = ref(null)
-const clusterStart = async ()=>{
+const clusterStart = async () => {
   // @ts-ignore
   await childDom.value.init()
   message.success('聚类成功');
@@ -45,7 +46,37 @@ const clusterStart = async ()=>{
         </dv-border-box12>
       </div>
       <div class="middle-item">
+        <!--  三列-->
+        <div>
+          <div class="water-level-chart-item">
+            <water-level-chart documentId="water-level-chart1" title="人文素养"></water-level-chart>
+          </div>
+          <div class="water-level-chart-item">
+            <water-level-chart documentId="water-level-chart2" title="团队协作能力"></water-level-chart>
+          </div>
+          <div class="water-level-chart-item">
+            <water-level-chart documentId="water-level-chart3" title="实验素养"></water-level-chart>
+          </div>
 
+        </div>
+        <div style="height: 420px;width: 500px">
+          <a-image :width="500" :height="420" src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png">
+
+          </a-image>
+        </div>
+
+        <div>
+          <div class="water-level-chart-item">
+            <water-level-chart documentId="water-level-chart4" title="科学素养"></water-level-chart>
+          </div>
+          <div class="water-level-chart-item">
+            <water-level-chart documentId="water-level-chart5" title="信息化素养"></water-level-chart>
+          </div>
+          <div class="water-level-chart-item">
+            <water-level-chart documentId="water-level-chart6" title="创新素养"></water-level-chart>
+          </div>
+
+        </div>
       </div>
       <div class="right-item">
         <dv-border-box8>
@@ -118,6 +149,13 @@ const clusterStart = async ()=>{
 
   .middle-item {
     width: 1020px;
+    display: flex;
+    padding-top: 10px;
+    justify-content: space-around;
+    .water-level-chart-item{
+      width: 140px;
+      height: 140px;
+    }
 
   }
 
