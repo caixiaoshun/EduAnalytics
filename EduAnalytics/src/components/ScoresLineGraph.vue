@@ -114,12 +114,12 @@ onMounted(async () => {
   option.series = series.value
 
   const myChart = echarts.init(document.getElementById('line-graph'))
-  console.log(option)
   myChart.setOption(option)
 })
 </script>
 
 <template>
+
   <div id="line-graph">
 
   </div>
