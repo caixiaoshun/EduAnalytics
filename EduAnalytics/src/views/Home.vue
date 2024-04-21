@@ -82,6 +82,32 @@ onMounted(async () => {
     })
   }
 })
+const getCurrentDate = () => {
+  const date = new Date(); // 创建一个Date对象，表示当前时间
+  const year = date.getFullYear(); // 获取四位数的年份
+  const month = (date.getMonth() + 1).toString().padStart(2, '0'); // 获取月份，加1是因为getMonth()返回的月份是从0开始的
+  const day = date.getDate().toString().padStart(2, '0'); // 获取日期
+
+  return `${year}年${month}月${day}日`; // 返回格式化的日期字符串
+}
+const configs = [
+  {
+    data: [25, 100],
+    shape: 'roundRect'
+  },
+  {
+    data: [30, 90],
+    shape: 'roundRect'
+  },
+  {
+    data: [25, 100],
+    shape: 'roundRect'
+  },
+  {
+    data: [25, 100],
+    shape: 'roundRect'
+  },
+]
 </script>
 
 <template>
@@ -92,6 +118,81 @@ onMounted(async () => {
         <dv-border-box12 class="left-item-border">
           <div class="line-graph">
             <scores-line-graph></scores-line-graph>
+          </div>
+          <div style="width: 100%;height: 450px;margin-top:50px;">
+            <!--    标题        -->
+            <div style="display: flex;justify-content: space-between">
+              <h2 style="color: #32C5FF;font-size: 20px">素养评价</h2>
+              <div style="color: greenyellow;font-size: 12px">截止时间:{{ getCurrentDate() }}</div>
+            </div>
+            <!--    一排四个水位图        -->
+            <div
+                style="display: flex;color: white;justify-content: space-around;margin-bottom: 10px;font-weight: 700;font-size: 18px">
+              <dv-decoration-11>知识与认知</dv-decoration-11>
+              <dv-decoration-11>道德与情感</dv-decoration-11>
+              <dv-decoration-11>实践与操作</dv-decoration-11>
+              <dv-decoration-11>创新与批判</dv-decoration-11>
+            </div>
+            <div style="display: flex;justify-content: space-around">
+              <dv-water-level-pond v-for="config in configs" :key="config" :config="config"
+                                   style="width:110px;height:190px"/>
+            </div>
+            <div
+                style="display: flex;color: white;font-weight: 500;justify-content: space-between;margin-top: 20px;font-size: 16px">
+              <div>指标体系</div>
+              <div>总占比</div>
+              <div>计算标准</div>
+            </div>
+            <div class="gradient-hr"></div>
+
+            <div
+                style="display: flex;color: white;font-weight: 500;justify-content: space-between;margin-top: 20px;font-size: 16px">
+              <div>课堂表现</div>
+              <div style="color: #32C5FF;margin-left: 70px">10%</div>
+              <div>课程发言，回答问题</div>
+            </div>
+            <div class="gradient-hr"></div>
+
+            <div
+                style="display: flex;color: white;font-weight: 500;justify-content: space-between;margin-top: 20px;font-size: 16px">
+              <div>自评成绩</div>
+              <div style="color: #32C5FF;margin-left: 70px">5%</div>
+              <div>每次课程自评成绩加总</div>
+            </div>
+            <div class="gradient-hr"></div>
+
+            <div
+                style="display: flex;color: white;font-weight: 500;justify-content: space-between;margin-top: 20px;font-size: 16px">
+              <div>他评成绩</div>
+              <div style="color: #32C5FF;margin-left: 70px">5%</div>
+              <div>每次课程他评成绩加总</div>
+            </div>
+            <div class="gradient-hr"></div>
+
+            <div
+                style="display: flex;color: white;font-weight: 500;justify-content: space-between;margin-top: 20px;font-size: 16px">
+              <div>作业</div>
+              <div style="color: #32C5FF;margin-left: 100px">30%</div>
+              <div>作业完成情况打分加总</div>
+            </div>
+            <div class="gradient-hr"></div>
+
+            <div
+                style="display: flex;color: white;font-weight: 500;justify-content: space-between;margin-top: 20px;font-size: 16px">
+              <div>期中成绩</div>
+              <div style="color: #32C5FF;margin-left: 70px">10%</div>
+              <div>期中作业完成情况打分</div>
+            </div>
+            <div class="gradient-hr"></div>
+
+            <div
+                style="display: flex;color: white;font-weight: 500;justify-content: space-between;margin-top: 20px;font-size: 16px">
+              <div>期末成绩</div>
+              <div style="color: #32C5FF;margin-left: 70px">10%</div>
+              <div>期末作业完成情况打分</div>
+            </div>
+            <div class="gradient-hr"></div>
+
           </div>
         </dv-border-box12>
       </div>
@@ -286,5 +387,12 @@ onMounted(async () => {
   text-shadow: 0 0 3px #7acaec;
   color: #32C5FF;
   background-color: #06324F;
+}
+
+.gradient-hr {
+  display: inline-block;
+  width: 100%; /* 根据需要调整宽度 */
+  height: 3px;
+  background: linear-gradient(to right, #4a5357, #32C5FF, #4a5357);
 }
 </style>
