@@ -8,6 +8,8 @@ import * as echarts from 'echarts'
 import 'ant-design-vue/dist/reset.css';
 import Antd from 'ant-design-vue';
 import 'echarts-liquidfill'
+import "echarts-gl"
+import 'echarts-wordcloud'
 const app = createApp(App)
 
 

@@ -4,7 +4,7 @@ import {getCurrentInstance, onMounted, reactive, ref, watch} from "vue";
 import {useClusterStore} from "@/stores/clusterStore";
 import {storeToRefs} from "pinia";
 
-const {cluster, score, method} = storeToRefs(useClusterStore())
+const {cluster, score, method,spinning} = storeToRefs(useClusterStore())
 
 function getCurrentYearMonth(): string {
   const now = new Date(); // 获取当前时间
@@ -85,12 +85,14 @@ const CreateOptionData = () => {
   }
 }
 const init = async () => {
+  spinning.value = true
   let response = await request.get("/getStudentCluster", {
     params: {
       method: method.value,
       cluster: cluster.value,
     }
   })
+  spinning.value = false
   score.value = response.data.score
   let myEchart = echarts.init(document.getElementById('student-cluster'))
   clusterAllData.value = response.data

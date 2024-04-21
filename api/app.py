@@ -11,6 +11,8 @@ from sklearn.preprocessing import StandardScaler
 app = Flask(__name__)
 
 root_data = './data'
+
+
 def get_name_score(filename):
     """
     一个工具函数，得到姓名和分数
@@ -190,6 +192,23 @@ def get_student_cluster():
         return jsonify({"data": get_result_from_df(df), "score": sil_score, "cluster": cluster})
 
 
+@app.route('/getStudentPerformer')
+@cross_origin()
+def get_student_performance():
+    """
+    得到学生自我评价信息
+    :return:
+    """
+    df = pd.read_excel(os.path.join(os.getcwd(), 'data', '2022数据分析与处理技术课程综课堂表现记录名单.xlsx'))
+    df.fillna(0, inplace=True)
+    data = []
+    for i in range(len(df)):
+        for j in range(1, 17):
+            key = f"第{j}课"
+            data.append([df.iloc[i]['姓名'], key, df.iloc[i][key]])
+    return jsonify({"data": data})
+
+
 @app.route('/getStudentGrade')
 @cross_origin()
 def getStudentGrade():
@@ -202,6 +221,19 @@ def getStudentGrade():
     data = df.to_dict(orient='records')
     columns = list(df.columns)[1:]
     return jsonify({"columns": columns, "data": data})
+
+
+@app.route("/getClassInformation")
+@cross_origin()
+def getClassInformation():
+    """
+    得到班级信息
+    :return:
+    """
+    df = pd.read_excel(os.path.join(os.getcwd(), 'data', '2022数据分析与处理技术课程综课堂表现记录名单.xlsx'))
+    student_names = df['姓名'].to_list()
+    all_classes = list(df.columns[4:])
+    return jsonify({"student_names": student_names, "all_classes":all_classes})
 
 
 if __name__ == '__main__':

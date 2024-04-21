@@ -10,7 +10,7 @@ const props = defineProps({
   },
   waterLevel: {
     type: Number,
-    default: 0
+    default: 70
   },
   documentId:{
     type:String,
@@ -38,7 +38,7 @@ const option = {
     type: 'liquidFill',
     radius: '60%',
     center: ['50%', '45%'],
-    data: [70/100],
+    data: [ props.waterLevel /100],
     label:{
       normal:{
         textStyle:{

@@ -6,6 +6,7 @@ export const useClusterStore = defineStore("clusterStore",{
             cluster:3,
             score:0,
             method:'Kmeans',
+            spinning:false
         }
     },
     actions:{},
