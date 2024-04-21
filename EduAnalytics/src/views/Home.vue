@@ -13,6 +13,7 @@ import StudentPerformance3D from "@/components/StudentPerformance3D.vue";
 import WordCloudChart from "@/components/word-cloud-chart.vue";
 import {useStudentPerformance} from "@/stores/studentPerformance";
 import {request} from "@/request";
+import StudentPerformance2D from "@/components/studentPerformance2D.vue";
 
 const {cluster, score, method} = storeToRefs(useClusterStore())
 const {showWhichChart} = storeToRefs(useStudentPerformance())
@@ -57,6 +58,9 @@ const handleOk = () => {
 }
 const handleClicik = () => {
   ModelOpen.value = true
+  formState.studentname = ''
+  formState.classTh = ''
+  showWhichChart.value = 0
 }
 const student_names = ref()
 const all_grades = ref()
@@ -64,23 +68,19 @@ onMounted(async () => {
   let response = await request.get("/getClassInformation")
   let data = response.data
   student_names.value = []
-  for(let i = 0;i<data.student_names.length;i++)
-  {
+  for (let i = 0; i < data.student_names.length; i++) {
     student_names.value.push({
-      value:data.student_names[i],
-      label:data.student_names[i]
+      value: data.student_names[i],
+      label: data.student_names[i]
     })
   }
-  console.log(data)
   all_grades.value = []
-  for(let i = 0;i<data.all_classes.length;i++)
-  {
+  for (let i = 0; i < data.all_classes.length; i++) {
     all_grades.value.push({
-      value:data.all_classes[i],
-      label:data.all_classes[i]
+      value: data.all_classes[i],
+      label: data.all_classes[i]
     })
   }
-  console.log(all_grades)
 })
 </script>
 
@@ -133,6 +133,8 @@ onMounted(async () => {
         <div class="middle-item-lower">
           <div style="height: 400px;width: 600px">
             <StudentPerformance3D v-if="showWhichChart === 0"></StudentPerformance3D>
+            <student-performance2-d v-else :student-name="formState.studentname" :class-th="formState.classTh"
+                                    :title="showWhichChart === 1?formState.studentname:formState.classTh"></student-performance2-d>
           </div>
           <div>
             <dv-button :bg="false" @click="handleClicik" style="margin-bottom: 100px">查看学生或课堂详情

@@ -233,7 +233,26 @@ def getClassInformation():
     df = pd.read_excel(os.path.join(os.getcwd(), 'data', '2022数据分析与处理技术课程综课堂表现记录名单.xlsx'))
     student_names = df['姓名'].to_list()
     all_classes = list(df.columns[4:])
-    return jsonify({"student_names": student_names, "all_classes":all_classes})
+    return jsonify({"student_names": student_names, "all_classes": all_classes})
+
+
+@app.route("/getClassByNameOrClassTh")
+@cross_origin()
+def getClassByNameOrClassTh():
+    """
+    得到班级信息
+    :return:
+    """
+    df = pd.read_excel(os.path.join(os.getcwd(), 'data', '2022数据分析与处理技术课程综课堂表现记录名单.xlsx'))
+    showWhichChart = int(request.args.get('showWhichChart'))
+    if showWhichChart == 1:
+        student_name = request.args.get('student_name')
+        data = df[df['姓名'] == student_name].fillna(0).values.tolist()
+        return jsonify({"data": data})
+    else:
+        class_th = request.args.get('class_th')
+        data = df[['姓名', class_th]].fillna(0).values.tolist()
+        return jsonify({"data": data})
 
 
 if __name__ == '__main__':
