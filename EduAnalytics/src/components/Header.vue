@@ -1,5 +1,10 @@
 <script setup lang="ts">
-
+const props = defineProps({
+  title:{
+    type:String,
+    default:"ClassTrack and TeachVis"
+  }
+})
 </script>
 
 <template>
@@ -10,7 +15,7 @@
   <div class="header-title">
     <div style="display: flex;align-items: center">
       <dv-decoration-8 style="height: 44px;flex: 1" />
-      <div style="flex: 1;color: ghostwhite;text-align: center;font-weight: 600;font-size: 17px">ClassTrack and TeachVis</div>
+      <div style="flex: 1;color: ghostwhite;text-align: center;font-weight: 600;font-size: 17px">{{props.title}}</div>
       <dv-decoration-8 style="height: 44px;flex: 1" :reverse="true" />
     </div>
 

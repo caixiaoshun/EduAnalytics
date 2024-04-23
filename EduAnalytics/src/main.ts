@@ -10,11 +10,13 @@ import Antd from 'ant-design-vue';
 import 'echarts-liquidfill'
 import "echarts-gl"
 import 'echarts-wordcloud'
+import Particles from "particles.vue3";
 const app = createApp(App)
 
 
 app.config.globalProperties.$echarts = echarts
 app.use(createPinia())
+app.use(Particles)
 app.use(Antd)
 app.use(router)
 app.use(DataVVue3)
