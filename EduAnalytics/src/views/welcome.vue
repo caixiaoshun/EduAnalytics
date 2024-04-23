@@ -1,7 +1,12 @@
 <script setup lang="ts">
+import {useRouter} from "vue-router";
+const router = useRouter()
 import Header from "@/components/Header.vue";
 import welcomeImg from '@/assets/welcome.png'
-import ButtonIcon from '@/assets/ButtonIcon.png'
+
+const handleClick = ()=>{
+  router.push({name:'courseOverView'})
+}
 </script>
 
 <template>
@@ -14,7 +19,7 @@ import ButtonIcon from '@/assets/ButtonIcon.png'
       </div>
       <div style="margin-top: 100px;text-align: center">
 
-        <div class="start-title">
+        <div class="start-title" :onclick="handleClick">
           <dv-border-box10>
             进入系统
           </dv-border-box10>

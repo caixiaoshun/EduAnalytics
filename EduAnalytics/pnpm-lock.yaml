@@ -29,6 +29,9 @@ dependencies:
   echarts-wordcloud:
     specifier: ^2.1.0
     version: 2.1.0(echarts@5.5.0)
+  nprogress:
+    specifier: ^0.2.0
+    version: 0.2.0
   particles.vue3:
     specifier: ^2.12.0
     version: 2.12.0(typescript@5.4.5)
@@ -1400,6 +1403,10 @@ packages:
       read-package-json-fast: 3.0.2
       shell-quote: 1.8.1
     dev: true
+
+  /nprogress@0.2.0:
+    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
+    dev: false
 
   /particles.vue3@2.12.0(typescript@5.4.5):
     resolution: {integrity: sha512-t1AFUSuL+zzXO5fvBq6y76DAyy6sXtBOVY3UirNzaRQ0JCqSV3wCQwQ2N51tJRG6V952ARi87NMcQP5VwfTkqA==}
