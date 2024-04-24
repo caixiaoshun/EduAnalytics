@@ -24,7 +24,7 @@ const option = reactive({
   title: {
     text: '学生聚类分析',
     subtext: getCurrentYearMonth(),
-    left: 'leafDepth',
+    left: 'center',
     textStyle: {
       //文字颜色
       color: '#ccc',

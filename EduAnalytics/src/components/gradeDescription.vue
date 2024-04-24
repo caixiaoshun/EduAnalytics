@@ -5,6 +5,7 @@ import img2 from '@/assets/钻石.png'
 import img3 from '@/assets/白金.png'
 import img4 from '@/assets/铂金.png'
 import img5 from '@/assets/银章.png'
+
 interface Value {
   name: string,
   value: number
@@ -41,12 +42,12 @@ const config = ref({
     },
   ],
   showValue: true,
-  img:[
-      img1,
-      img2,
-      img3,
-      img4,
-      img5,
+  img: [
+    img1,
+    img2,
+    img3,
+    img4,
+    img5,
   ]
 })
 onMounted(async () => {
@@ -79,6 +80,7 @@ const prevPage = () => {
       message: '提示',
       description:
           '这已经是第一页了',
+      placement: 'topLeft',
       icon: () => h(SmileOutlined, {style: 'color: #108ee9'}),
     });
   }
@@ -91,6 +93,7 @@ const nextPage = () => {
       message: '提示',
       description:
           '这已经是最后一页了',
+      placement: 'topLeft',
       icon: () => h(SmileOutlined, {style: 'color: #108ee9'}),
     });
   }
@@ -100,7 +103,7 @@ const nextPage = () => {
 
 <template>
   <div class="container">
-    <div class="title"><span>结果可视化</span></div>
+    <div class="title"><span>学生成绩总结</span></div>
     <div class="description">
       <div style="font-weight: 700;font-size: 14px">总分排名</div>
       <div style="font-size: 8px;color:rgb(236,223,223)">截止时间:{{ getCurrentTime }}</div>
@@ -151,6 +154,16 @@ const nextPage = () => {
 </template>
 
 <style scoped lang="scss">
+@-webkit-keyframes shine { /*创建动画*/
+  0%, 100% {
+    color: #fff;
+    text-shadow: 0 0 10px #0000FF, 0 0 10px #0000FF;
+  }
+  50% {
+    text-shadow: 0 0 10px #0000FF, 0 0 40px #0000FF;
+  }
+}
+
 .container {
   height: 100%;
   width: 100%;
@@ -158,11 +171,15 @@ const nextPage = () => {
   padding-top: 5px;
 
   .title {
-    color: white;
     text-align: center;
 
     span {
-      background-color: #50bade;
+      font-weight: 700;
+      color: #0000FF; /*设置文字颜色*/
+      text-decoration: none;
+      font-size: 20px; /*设置字体大小*/
+      font-family: "微软雅黑", serif; /*设置字体*/
+      -webkit-animation: shine 2.4s infinite; /*设置动画*/
     }
   }
 

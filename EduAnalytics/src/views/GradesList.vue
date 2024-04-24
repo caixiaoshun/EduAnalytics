@@ -3,9 +3,11 @@
 import Header from "@/components/Header.vue";
 import {ref} from "vue";
 import LineChart from "@/components/LineChart.vue";
+import {useRouter} from "vue-router";
+
 const suspend = 4
 const whichShow = ref(0)
-
+const router = useRouter()
 const cur = ref(4)
 setInterval(() => {
   whichShow.value = (whichShow.value + 1) % 5
@@ -15,7 +17,7 @@ setInterval(() => {
   cur.value -= 1
 }, 1000)
 const handleClick = () => {
-
+  router.push({name:'resultAnalysic'})
 }
 </script>
 
