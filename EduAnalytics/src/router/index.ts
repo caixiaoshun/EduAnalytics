@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
+import Home from '@/views/Home.vue'
+import Welcome from "@/views/welcome.vue";
+import CourseOverview from "@/views/CourseOverview.vue";
 // @ts-ignore
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
@@ -11,17 +13,17 @@ const router = createRouter({
     {
       path:'/home',
       name:'home',
-      component:()=>import('@/views/Home.vue')
+      component:Home
     },
     {
       path:'/',
       name:'welcome',
-      component:()=>import('@/views/welcome.vue')
+      component:Welcome
     },
     {
       path:'/courseOverView',
       name:'courseOverView',
-      component:()=>import('@/views/CourseOverview.vue')
+      component:CourseOverview
     }
   ]
 })
