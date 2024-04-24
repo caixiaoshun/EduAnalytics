@@ -11,6 +11,9 @@ dependencies:
   '@kjgl77/datav-vue3':
     specifier: ^1.7.2
     version: 1.7.2(vue@3.4.23)
+  animate.css:
+    specifier: ^4.1.1
+    version: 4.1.1
   ant-design-vue:
     specifier: 4.x
     version: 4.1.2(vue@3.4.23)
@@ -991,6 +994,10 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
+    dev: false
+
+  /animate.css@4.1.1:
+    resolution: {integrity: sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ==}
     dev: false
 
   /ansi-styles@6.2.1:

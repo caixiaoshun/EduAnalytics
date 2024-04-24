@@ -4,7 +4,8 @@ import Welcome from "@/views/welcome.vue";
 import CourseOverview from "@/views/CourseOverview.vue";
 // @ts-ignore
 import NProgress from 'nprogress' // progress bar
-import 'nprogress/nprogress.css' // progress bar style
+import 'nprogress/nprogress.css'
+import GradesList from "@/views/GradesList.vue"; // progress bar style
 
 
 const router = createRouter({
@@ -24,6 +25,11 @@ const router = createRouter({
       path:'/courseOverView',
       name:'courseOverView',
       component:CourseOverview
+    },
+    {
+      path:'/gradesList',
+      name:'gradesList',
+      component:GradesList
     }
   ]
 })

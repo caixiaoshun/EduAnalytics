@@ -255,5 +255,67 @@ def getClassByNameOrClassTh():
         return jsonify({"data": data})
 
 
+@app.route("/getselfassess")
+@cross_origin()
+def get_self_assess():
+    """
+    得到自评分数
+    :return:
+    """
+    df = pd.read_excel(os.path.join(root_data, '2022数据分析与处理技术课程分组数据依据.xlsx'))
+    df = df.iloc[:, 1:3]
+    data = df.values.tolist()
+    return jsonify({"data": data})
+
+
+@app.route("/getgroupegrade")
+@cross_origin()
+def get_group_grade():
+    """
+    得到小组分数
+    :return:
+    """
+    df = pd.read_excel(os.path.join(root_data, '2022数据分析与处理技术课程分组数据依据.xlsx'))
+    df = df.iloc[:, [1, 4]]
+    data = df.values.tolist()
+    return jsonify({"data": data})
+
+@app.route("/gethomeworkgrade")
+@cross_origin()
+def get_homework_grade():
+    """
+    得到作业分数
+    :return:
+    """
+    df = pd.read_excel(os.path.join(root_data, '2022数据分析与处理技术课程据-成绩计算.xlsx'),sheet_name='最终成绩计算')
+    df = df.iloc[:, [1, 3]]
+    data = df.values.tolist()
+    return jsonify({"data": data})
+
+@app.route("/getmidgrade")
+@cross_origin()
+def get_mid_grade():
+    """
+    得到期中
+    :return:
+    """
+    df = pd.read_excel(os.path.join(root_data, '2022数据分析与处理技术课程据-成绩计算.xlsx'),sheet_name='最终成绩计算')
+    df = df.iloc[:, [1, 5]]
+    data = df.values.tolist()
+    return jsonify({"data": data})
+
+@app.route("/getendgrade")
+@cross_origin()
+def get_end_grade():
+    """
+    得到期末
+    :return:
+    """
+    df = pd.read_excel(os.path.join(root_data, '2022数据分析与处理技术课程据-成绩计算.xlsx'),sheet_name='最终成绩计算')
+    df = df.iloc[:, [1, 7]]
+    data = df.values.tolist()
+    return jsonify({"data": data})
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

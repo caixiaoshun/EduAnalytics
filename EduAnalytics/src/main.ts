@@ -10,6 +10,7 @@ import Antd from 'ant-design-vue';
 import 'echarts-liquidfill'
 import "echarts-gl"
 import 'echarts-wordcloud'
+import 'animate.css';
 import Particles from "particles.vue3";
 const app = createApp(App)
 
