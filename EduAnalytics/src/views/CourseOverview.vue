@@ -4,6 +4,7 @@ import RadarChart from "@/components/RadarChart.vue";
 import WaterLevelChart from "@/components/WaterLevelChart.vue";
 import ScoresLineGraph from "@/components/ScoresLineGraph.vue";
 import {useRouter} from "vue-router";
+import BubbleChart from "@/components/bubble-chart.vue";
 const router = useRouter()
 const getCurrentDate = () => {
   const date = new Date(); // 创建一个Date对象，表示当前时间
@@ -83,8 +84,8 @@ const handleClick = ()=>{
     </div>
     <div class="right-item">
       <dv-border-box8 :dur="5">
-        <div style="width: 100%;height: 800px">
-          <scores-line-graph></scores-line-graph>
+        <div style="width: 100%;height: 800px;display: flex;justify-content: center;align-items: center">
+          <bubble-chart></bubble-chart>
         </div>
         <div style="text-align: center;display: flex;justify-content: flex-end;height: 40px">
           <dv-button @click="handleClick" border="Border6" color="#4bbbb2" style="width: 200px;font-size: 18px;margin-top: 5px;margin-right: 50px">点击前往结果分析</dv-button>

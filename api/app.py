@@ -280,6 +280,7 @@ def get_group_grade():
     data = df.values.tolist()
     return jsonify({"data": data})
 
+
 @app.route("/gethomeworkgrade")
 @cross_origin()
 def get_homework_grade():
@@ -287,10 +288,11 @@ def get_homework_grade():
     得到作业分数
     :return:
     """
-    df = pd.read_excel(os.path.join(root_data, '2022数据分析与处理技术课程据-成绩计算.xlsx'),sheet_name='最终成绩计算')
+    df = pd.read_excel(os.path.join(root_data, '2022数据分析与处理技术课程据-成绩计算.xlsx'), sheet_name='最终成绩计算')
     df = df.iloc[:, [1, 3]]
     data = df.values.tolist()
     return jsonify({"data": data})
+
 
 @app.route("/getmidgrade")
 @cross_origin()
@@ -299,10 +301,11 @@ def get_mid_grade():
     得到期中
     :return:
     """
-    df = pd.read_excel(os.path.join(root_data, '2022数据分析与处理技术课程据-成绩计算.xlsx'),sheet_name='最终成绩计算')
+    df = pd.read_excel(os.path.join(root_data, '2022数据分析与处理技术课程据-成绩计算.xlsx'), sheet_name='最终成绩计算')
     df = df.iloc[:, [1, 5]]
     data = df.values.tolist()
     return jsonify({"data": data})
+
 
 @app.route("/getendgrade")
 @cross_origin()
@@ -311,10 +314,25 @@ def get_end_grade():
     得到期末
     :return:
     """
-    df = pd.read_excel(os.path.join(root_data, '2022数据分析与处理技术课程据-成绩计算.xlsx'),sheet_name='最终成绩计算')
+    df = pd.read_excel(os.path.join(root_data, '2022数据分析与处理技术课程据-成绩计算.xlsx'), sheet_name='最终成绩计算')
     df = df.iloc[:, [1, 7]]
     data = df.values.tolist()
     return jsonify({"data": data})
+
+
+@app.route("/getBubbleData")
+@cross_origin()
+def get_bubble_data():
+    df = pd.read_excel(os.path.join(root_data, '2022数据分析与处理技术课程据-成绩计算.xlsx'), sheet_name='最终成绩计算')
+    kao_qin = df['考勤']
+    homework = df['实验作业']
+    mid_grade = df['期中']
+    end_grade = df['期末大作业']
+    total_grade = (kao_qin * 10 * 0.2 + ((homework / 30) * 100) * 0.6 + mid_grade * 10 * 0.2) * 0.5 + end_grade * 0.5
+    res = pd.DataFrame()
+    res['姓名'] = df['姓名']
+    res['总成绩'] = total_grade
+    return jsonify({"data": res.values.tolist()})
 
 
 if __name__ == '__main__':
