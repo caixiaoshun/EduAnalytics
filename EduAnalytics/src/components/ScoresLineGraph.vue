@@ -92,11 +92,11 @@ onMounted(async () => {
         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
           {
             offset: 0,
-            color: 'rgb(128, 255, 165)'
+            color: '#7D45C4'
           },
           {
             offset: 1,
-            color: 'rgb(1, 191, 236)'
+            color: 'rgba(119,103,140,0.85)'
           }
         ])
       },
