@@ -36,6 +36,11 @@ const router = createRouter({
       path:'/resultAnalysic',
       name:'resultAnalysic',
       component:ResultAnalysic
+    },
+    {
+      path:'/secondVersion',
+      name:'secondVersion',
+      component:Home
     }
   ]
 })
