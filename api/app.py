@@ -335,5 +335,29 @@ def get_bubble_data():
     return jsonify({"data": res.values.tolist()})
 
 
+@app.route('/singleStudentGrade')
+@cross_origin()
+def get_singleStudentGrade():
+    name = request.args.get('name', '宋显浩')
+    df = pd.read_excel(os.path.join(root_data, '2022数据分析与处理技术课程据-成绩计算.xlsx'), sheet_name='最终成绩计算')
+    stu = df[df['姓名'] == name]
+    res = []
+    res.append({'name': '考勤成绩', 'value': stu['考勤'].values.tolist()[0]})
+    res.append({'name': '实验作业成绩', 'value': stu['实验作业'].values.tolist()[0]})
+    res.append({'name': '期中成绩', 'value': stu['期中'].values.tolist()[0]})
+    res.append({'name': '平时成绩', 'value': stu['平时'].values.tolist()[0]})
+    res.append({'name': '期末大作业成绩', 'value': stu['期末大作业'].values.tolist()[0]})
+    res.append({'name': '总成绩', 'value': stu['总成绩'].values.tolist()[0]})
+    return jsonify({"data": res})
+
+
+@app.route('/getStudentNames')
+@cross_origin()
+def get_studentNames():
+    df = pd.read_excel(os.path.join(root_data, '2022数据分析与处理技术课程据-成绩计算.xlsx'), sheet_name='最终成绩计算')
+    stu_names = df['姓名'].to_list()
+    return jsonify({"data": stu_names})
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import {getCurrentInstance, onMounted, reactive} from 'vue'
+import {getCurrentInstance, onBeforeMount, onMounted, reactive} from 'vue'
 import {request} from "@/request";
 
 const instance = getCurrentInstance()
@@ -83,16 +83,18 @@ const init = async () => {
   option.series[0].data = data.map(function (item: any) {
     return [item[0], item[1], item[1] * item[1]]
   })
-  console.log(option)
   let myEcharts = echarts.init(document.getElementById('bubble-chart'))
   myEcharts.setOption(option)
 }
 onMounted(() => {
   init()
 })
-setInterval(()=>{
+const interval = setInterval(()=>{
   init()
 },1000*5)
+onBeforeMount(()=>{
+  clearInterval(interval)
+})
 </script>
 
 <template>
