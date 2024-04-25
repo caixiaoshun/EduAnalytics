@@ -28,6 +28,26 @@ const option = {
       { name: '期中成绩', max: 15 },
       { name: '期末成绩', max: 15 }
     ],
+    axisName: {
+      color: 'rgb(238, 197, 102)'
+    },
+    axisLine: {
+      lineStyle: {
+        color: 'rgba(238, 197, 102, 0.5)'
+      }
+    },
+    splitLine: {
+      lineStyle: {
+        color: [
+          'rgba(238, 197, 102, 0.1)',
+          'rgba(238, 197, 102, 0.2)',
+          'rgba(238, 197, 102, 0.4)',
+          'rgba(238, 197, 102, 0.6)',
+          'rgba(238, 197, 102, 0.8)',
+          'rgba(238, 197, 102, 1)'
+        ].reverse()
+      }
+    },
   },
   series: [
     {
