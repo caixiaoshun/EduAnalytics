@@ -8,7 +8,9 @@ import {message} from "ant-design-vue";
 import {storeToRefs} from "pinia";
 import {useClusterStore} from "@/stores/clusterStore";
 import {ref} from "vue";
+import {useRouter} from "vue-router";
 const {cluster, score, method,spinning} = storeToRefs(useClusterStore())
+const router = useRouter()
 const childDom = ref(null)
 const options = [
   {
@@ -30,7 +32,9 @@ const clusterStart = async () => {
   await childDom.value.init()
   message.success('聚类成功');
 }
-
+const handleClick = () => {
+  router.push({name:'home'})
+}
 </script>
 
 <template>
@@ -86,9 +90,10 @@ const clusterStart = async () => {
               </div>
             </dv-decoration-9>
           </div>
+          <div style="display: flex;justify-content: flex-end">
+            <dv-button @click="handleClick" border="Border3" color="#c8161d" font-color="#e18a3b">总览</dv-button>
+          </div>
           <a-spin style="height: 500px;width: 100%" :spinning="spinning">
-
-
           <student-cluster style="height: 500px" ref="childDom"></student-cluster>
           </a-spin>
         </div>

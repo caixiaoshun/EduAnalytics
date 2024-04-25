@@ -65,6 +65,11 @@ const handleClick = () => {
       </dv-button>
     </div>
   </div>
+  <div :class="{circle:true,bg1:whichShow === 0,bg2:whichShow != 0}" style="position: absolute;top: 500px;left: 400px"></div>
+  <div :class="{circle:true,bg1:whichShow === 1,bg2:whichShow != 1}" style="position: absolute;top: 280px;left: 580px"></div>
+  <div :class="{circle:true,bg1:whichShow === 2,bg2:whichShow != 2}" style="position: absolute;top: 190px;left: 770px"></div>
+  <div :class="{circle:true,bg1:whichShow === 3,bg2:whichShow != 3}" style="position: absolute;top: 210px;left: 1180px"></div>
+  <div :class="{circle:true,bg1:whichShow === 4,bg2:whichShow != 4}" style="position: absolute;top: 380px;left: 980px"></div>
 </template>
 
 <style scoped lang="scss">
@@ -78,7 +83,19 @@ const handleClick = () => {
     height: 400px;
     display: inline-block;
     position: absolute;
+    z-index: 10;
   }
 }
-
+.circle {
+  width: 50px;          /* 圆的直径 */
+  height: 50px;         /* 圆的直径 */
+  border-radius: 50%;    /* 使元素的四个角都成为圆角 */
+  z-index: 100;
+}
+.bg1{
+  background-color: rgba(215, 18, 229, 0.5);
+}
+.bg2{
+  background-color: rgba(30, 218, 61, 0.5); /* 设置背景颜色 */
+}
 </style>

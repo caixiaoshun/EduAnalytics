@@ -130,7 +130,7 @@ def get_student_summary():
     :return:
     """
     df = pd.DataFrame()
-    df0 = pd.read_excel(os.path.join(os.getcwd(), "data", "2022数据分析与处理技术课程综课堂表现记录名单.xlsx"))
+    df0 = pd.read_excel(os.path.join(root_data, "2022数据分析与处理技术课程综课堂表现记录名单.xlsx"))
     df0.fillna(0, inplace=True)
     df['学号'] = df0['学号']
     df['姓名'] = df0['姓名'].map(lambda x: x.strip())
@@ -138,13 +138,13 @@ def get_student_summary():
     df['班级'] = df0['班级']
     df['课堂表现记录'] = df0.iloc[:, 4:].sum(axis=1)
 
-    df1 = pd.read_excel(os.path.join(os.getcwd(), "data", "2022数据分析与处理技术课程自评.xlsx"))
+    df1 = pd.read_excel(os.path.join(root_data, "2022数据分析与处理技术课程自评.xlsx"))
     df1.fillna(0, inplace=True)
     df['自评'] = df1.iloc[:, 5:].sum(axis=1)
 
     filenames = ["第一次组员打分表.xlsx", "第一次组长打分表.xlsx", "第二次组员打分表.xlsx", "第二次组长打分表.xlsx"]
     for filename in filenames:
-        df = merge_DataFrame(os.path.join(os.getcwd(), "data", filename), df)
+        df = merge_DataFrame(os.path.join(root_data, filename), df)
     df = df.fillna(0)
     return df
 
@@ -199,7 +199,7 @@ def get_student_performance():
     得到学生自我评价信息
     :return:
     """
-    df = pd.read_excel(os.path.join(os.getcwd(), 'data', '2022数据分析与处理技术课程综课堂表现记录名单.xlsx'))
+    df = pd.read_excel(os.path.join(root_data, '2022数据分析与处理技术课程综课堂表现记录名单.xlsx'))
     df.fillna(0, inplace=True)
     data = []
     for i in range(len(df)):
@@ -230,7 +230,7 @@ def getClassInformation():
     得到班级信息
     :return:
     """
-    df = pd.read_excel(os.path.join(os.getcwd(), 'data', '2022数据分析与处理技术课程综课堂表现记录名单.xlsx'))
+    df = pd.read_excel(os.path.join(root_data, '2022数据分析与处理技术课程综课堂表现记录名单.xlsx'))
     student_names = df['姓名'].to_list()
     all_classes = list(df.columns[4:])
     return jsonify({"student_names": student_names, "all_classes": all_classes})
@@ -243,7 +243,7 @@ def getClassByNameOrClassTh():
     得到班级信息
     :return:
     """
-    df = pd.read_excel(os.path.join(os.getcwd(), 'data', '2022数据分析与处理技术课程综课堂表现记录名单.xlsx'))
+    df = pd.read_excel(os.path.join(root_data, '2022数据分析与处理技术课程综课堂表现记录名单.xlsx'))
     showWhichChart = int(request.args.get('showWhichChart'))
     if showWhichChart == 1:
         student_name = request.args.get('student_name')
