@@ -6,6 +6,9 @@ import {request} from "@/request";
 const instance = getCurrentInstance()
 const echarts = instance?.appContext.config.globalProperties.$echarts
 const option = reactive({
+  textStyle: {
+    fontFamily: 'YouSheTitleHei',
+  },
   backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [
     {
       offset: 0,

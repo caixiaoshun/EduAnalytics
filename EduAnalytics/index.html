@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ClassTrack and TeachVis</title>
     <style>
+        @font-face {
+            font-family: 'YouSheTitleHei'; /* 定义一个字体名 */
+            src: url('./src/assets/ttfs/优设标题黑.ttf') format('truetype'); /* 指定字体文件的路径和格式 */
+            font-weight: normal; /* 字体粗细 */
+            font-style: normal;  /* 字体风格 */
+        }
         body{
             background-image: url("src/assets/pageBg.png");
             background-position: center center;
@@ -23,11 +29,12 @@
             }
 
         }
+
     </style>
 
 </head>
 <body>
-<div id="app" style="height: 865px"></div>
+<div id="app" style="height: 865px;font-family: 'YouSheTitleHei', sans-serif;"></div>
 <script type="module" src="/src/main.ts"></script>
 </body>
 </html>

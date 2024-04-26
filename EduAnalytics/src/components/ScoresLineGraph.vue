@@ -23,6 +23,9 @@ const legend: Ref<Array<string>> = ref([])
 const names: Ref<Array<string>> = ref([])
 const series: Ref<Array<Series>> = ref([])
 const option = reactive({
+  textStyle: {
+    fontFamily: 'YouSheTitleHei',
+  },
   title: {
     text: '课程情况',
     left: 'center',

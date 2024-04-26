@@ -32,8 +32,8 @@ const handleChange = async () => {
   //@ts-ignore
   await ConicalBarChartChild.value.init()
 }
-const handleClick = ()=>{
-  router.push({name:'resultAnalysic'})
+const handleClick = () => {
+  router.push({name: 'resultAnalysic'})
 }
 </script>
 
@@ -71,7 +71,7 @@ const handleClick = ()=>{
         <!--   右边     -->
         <div style="flex: 2 0;display: flex;flex-direction: column;justify-content: space-between">
           <div style="flex: 1 0;text-align: center">
-<!--            <node-chart></node-chart>-->
+            <!--            <node-chart></node-chart>-->
             <student-performance3-d></student-performance3-d>
           </div>
           <div style="flex: 2 0;">
@@ -93,6 +93,7 @@ const handleClick = ()=>{
 .content {
   width: 100%;
   height: 100%;
+  font-family: 'YouSheTitleHei',serif;
 
 }
 

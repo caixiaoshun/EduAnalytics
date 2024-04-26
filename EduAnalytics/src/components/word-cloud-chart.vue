@@ -4,6 +4,9 @@ import {getCurrentInstance, onMounted} from "vue";
 const instance = getCurrentInstance()
 const echarts = instance?.appContext.config.globalProperties.$echarts
 const options = {
+  textStyle: {
+    fontFamily: 'YouSheTitleHei',
+  },
   series: [{
     type: 'wordCloud',
     shape: 'circle',

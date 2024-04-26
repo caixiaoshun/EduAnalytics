@@ -6,6 +6,9 @@ const data = [
   [20, 15, 15, 30, 10, 10]
 ];
 const option = {
+  textStyle: {
+    fontFamily: 'YouSheTitleHei',
+  },
   title: {
     text: '指标体系',
     left: 'left',

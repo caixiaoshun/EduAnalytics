@@ -5,6 +5,9 @@ const instance = getCurrentInstance()
 const echarts = instance?.appContext.config.globalProperties.$echarts
 const domRef = ref(null)
 const option = {
+  textStyle: {
+    fontFamily: 'YouSheTitleHei',
+  },
   tooltip: {
     trigger: 'item'
   },

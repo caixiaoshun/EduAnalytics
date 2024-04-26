@@ -7,6 +7,9 @@ const {proxy} = getCurrentInstance()
 const data = ref()
 const option = ref(
     {
+      textStyle: {
+        fontFamily: 'YouSheTitleHei',
+      },
       title:{
         show:true,
         text:"学生课堂表现",
@@ -16,7 +19,6 @@ const option = ref(
           color:'#fff',//'red'，字体颜色
           fontStyle:'normal',//'italic'(倾斜) | 'oblique'(倾斜体) ，字体风格
           fontWeight:'normal',//'bold'(粗体) | 'bolder'(粗体) | 'lighter'(正常粗细) ，字体粗细
-          fontFamily:'sans-serif',//'sans-serif' | 'serif' | 'monospace' | 'Arial' | 'Courier New'
           // 'Microsoft YaHei'(微软雅黑) ，文字字体
           fontSize:18,//字体大小
           lineHeight:18,//字体行高

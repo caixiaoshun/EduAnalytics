@@ -19,6 +19,9 @@ const props = defineProps({
 
 })
 const option = {
+  textStyle: {
+    fontFamily: 'YouSheTitleHei',
+  },
   backgroundColor: "#0e2147",
   title: {
     show: true,

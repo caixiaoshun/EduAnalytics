@@ -17,7 +17,10 @@ const domRef = ref(null)
 //@ts-ignore
 let chart = null
 const option = reactive({
-  backgroundColor: '#dbf1fd',
+  textStyle: {
+    fontFamily: 'YouSheTitleHei',
+  },
+  backgroundColor: '#2da48f',
   tooltip: {
     trigger: 'axis',
     axisPointer: {
@@ -27,8 +30,8 @@ const option = reactive({
   title: {
     text: `${props.name}成绩`,
     textStyle: {
-      color: '#000',
-      fontSize: 25
+      color: '#855f38',
+      fontSize: 20
     },
     top: "10%",
     left: 'left',
@@ -69,9 +72,9 @@ const option = reactive({
       textStyle: {
         fontSize: 14,
         // fontFamily: PangMenZhengDao,
-        fontWeight: 600,
+        fontWeight: 500,
         rotate: '90',
-        color: '#000',
+        color: '#8839ea',
       },
       //@ts-ignore
       formatter: function (value, index) {

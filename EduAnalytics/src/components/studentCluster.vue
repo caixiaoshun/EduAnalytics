@@ -21,6 +21,9 @@ const echarts = internalInstance?.appContext.config.globalProperties.$echarts
 const clusterAllData = ref()
 const optionData = ref()
 const option = reactive({
+  textStyle: {
+    fontFamily: 'YouSheTitleHei',
+  },
   title: {
     text: '学生聚类分析',
     subtext: getCurrentYearMonth(),

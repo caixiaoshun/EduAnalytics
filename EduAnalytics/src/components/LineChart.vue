@@ -18,6 +18,9 @@ const props = defineProps({
   },
 })
 const option = reactive({
+  textStyle: {
+    fontFamily: 'YouSheTitleHei',
+  },
   title:{
     text:props.title,
     left:'center',
