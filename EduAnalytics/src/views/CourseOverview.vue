@@ -5,6 +5,7 @@ import WaterLevelChart from "@/components/WaterLevelChart.vue";
 import ScoresLineGraph from "@/components/ScoresLineGraph.vue";
 import {useRouter} from "vue-router";
 import BubbleChart from "@/components/bubble-chart.vue";
+import NodeChart from "@/components/node-chart.vue";
 const router = useRouter()
 const getCurrentDate = () => {
   const date = new Date(); // 创建一个Date对象，表示当前时间
@@ -77,8 +78,14 @@ const handleClick = ()=>{
           <water-level-chart documentId="water-level-chart5" title="信息化素养" :water-level="15"></water-level-chart>
           <water-level-chart documentId="water-level-chart6" title="创新素养" :water-level="20"></water-level-chart>
         </div>
-      <div style="width: 100%;height: 280px">
-        <radar-chart></radar-chart>
+      <div style="width: 100%;height: 280px;display: flex;">
+        <div style="flex: 1 0;">
+          <node-chart></node-chart>
+        </div>
+        <div style="flex: 1 0">
+          <radar-chart></radar-chart>
+        </div>
+
       </div>
       </dv-border-box8>
     </div>

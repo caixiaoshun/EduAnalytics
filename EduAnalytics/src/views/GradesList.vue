@@ -10,6 +10,7 @@ import {useClusterStore} from "@/stores/clusterStore";
 import {storeToRefs} from "pinia";
 import ScoresLineGraph from "@/components/ScoresLineGraph.vue";
 import NodeChart from "@/components/node-chart.vue";
+import StudentPerformance3D from "@/components/StudentPerformance3D.vue";
 
 const {spinning} = storeToRefs(useClusterStore())
 const studentName = ref('宋显浩')
@@ -69,8 +70,9 @@ const handleClick = ()=>{
 
         <!--   右边     -->
         <div style="flex: 2 0;display: flex;flex-direction: column;justify-content: space-between">
-          <div style="flex: 1 0;">
-            <node-chart></node-chart>
+          <div style="flex: 1 0;text-align: center">
+<!--            <node-chart></node-chart>-->
+            <student-performance3-d></student-performance3-d>
           </div>
           <div style="flex: 2 0;">
             <div style="width: 100%;height: 90%">

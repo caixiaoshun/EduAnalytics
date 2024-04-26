@@ -125,7 +125,7 @@ onMounted(async () => {
 
 <template>
   <a-spin :spinning="spinning" style="width: 100%;height: 100%">
-    <div style="height: 400px;width: 600px;" id="heatMap"></div>
+    <div style="height: 400px;width: 600px;display: inline-block" id="heatMap"></div>
   </a-spin>
 
 </template>

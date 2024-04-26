@@ -14,6 +14,7 @@ const props = defineProps({
   }
 })
 const domRef = ref(null)
+//@ts-ignore
 let chart = null
 const option = reactive({
   backgroundColor: '#dbf1fd',
