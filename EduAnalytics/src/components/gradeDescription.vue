@@ -105,7 +105,7 @@ const nextPage = () => {
   <div class="container">
     <div class="title"><span>学生成绩总结</span></div>
     <div class="description">
-      <div style="font-weight: 700;font-size: 14px">总分排名</div>
+      <div style="font-weight: 600;font-size: 14px;font-family: 'YouSheTitleHei', sans-serif">总分排名</div>
       <div style="font-size: 8px;color:rgb(236,223,223)">截止时间:{{ getCurrentTime }}</div>
     </div>
     <div style="margin-top: 5px;">
@@ -119,7 +119,7 @@ const nextPage = () => {
                 :value-style="{ color: '#66FFFF' }"
             >
               <template #title>
-                <span style="color: white">学生优秀率</span>
+                <span style="color: #cc6464;font-family: 'YouSheTitleHei', sans-serif">学生优秀率</span>
               </template>
             </a-statistic>
           </a-card>
@@ -134,7 +134,7 @@ const nextPage = () => {
                 :value-style="{ color: '#66FFFF' }"
             >
               <template #title>
-                <span style="color: white">学生及格率</span>
+                <span style="color: #cc6464;font-family: 'YouSheTitleHei', sans-serif">学生及格率</span>
               </template>
             </a-statistic>
           </a-card>
@@ -178,7 +178,6 @@ const nextPage = () => {
       color: #0000FF; /*设置文字颜色*/
       text-decoration: none;
       font-size: 20px; /*设置字体大小*/
-      font-family: "微软雅黑", serif; /*设置字体*/
       -webkit-animation: shine 2.4s infinite; /*设置动画*/
     }
   }
