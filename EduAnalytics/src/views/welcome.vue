@@ -26,8 +26,10 @@ const handleClick = ()=>{
         </div>
 
       </div>
-
     </div>
+  </div>
+  <div style="margin-top: 90px;font-family: sans-serif;text-align: center">
+    <span style="color: #808080"><a href="http://beian.miit.gov.cn/" target="_blank">豫ICP备2024065810号-1</a></span>
   </div>
 </template>
 

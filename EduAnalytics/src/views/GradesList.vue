@@ -87,12 +87,15 @@ const handleClick = () => {
 
     </dv-border-box8>
   </div>
+  <div style="height: 5%;display: flex;justify-content: center;align-items: center">
+    <span style="color: #808080;font-family: sans-serif;font-size: 14px"><a href="http://beian.miit.gov.cn/" target="_blank">豫ICP备2024065810号-1</a></span>
+  </div>
 </template>
 
 <style scoped lang="scss">
 .content {
   width: 100%;
-  height: 100%;
+  height: 95%;
   font-family: 'YouSheTitleHei',serif;
 
 }

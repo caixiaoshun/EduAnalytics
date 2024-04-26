@@ -43,7 +43,7 @@ const handleClick = ()=>{
   <div class="course-over-view">
     <div class="left-item">
       <dv-border-box8 :dur="5" style="padding-left: 5px;padding-right: 5px">
-      <div style="width: 100%;height: 420px;">
+      <div style="width: 100%;height: 400px;">
         <!--    标题        -->
         <div style="display: flex;justify-content: space-between;margin-bottom: 20px">
           <h2 style="color: #32C5FF;font-size: 30px;margin-left: 20px">素养评价</h2>
@@ -91,22 +91,24 @@ const handleClick = ()=>{
     </div>
     <div class="right-item">
       <dv-border-box8 :dur="5">
-        <div style="width: 100%;height: 800px;display: flex;justify-content: center;align-items: center">
+        <div style="width: 100%;height: 770px;display: flex;justify-content: center;align-items: center">
           <bubble-chart></bubble-chart>
         </div>
         <div style="text-align: center;display: flex;justify-content: flex-end;height: 40px">
           <dv-button @click="handleClick" border="Border6" color="#4bbbb2" style="width: 200px;font-size: 18px;margin-top: 5px;margin-right: 50px">点击前往结果分析</dv-button>
         </div>
-
       </dv-border-box8>
     </div>
+  </div>
+  <div style="height: 5%;display: flex;justify-content: center;align-items: center">
+    <span style="color: #808080;font-family: sans-serif;font-size: 14px"><a href="http://beian.miit.gov.cn/" target="_blank">豫ICP备2024065810号-1</a></span>
   </div>
 </template>
 
 <style scoped lang="scss">
 .course-over-view{
   display: flex;
-  height: 100%;
+  height: 95%;
   width: 100%;
   justify-content: space-between;
   .left-item{
